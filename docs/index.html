@@ -1,0 +1,1828 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#f6ead9" />
+<title>라이브 오피스 · 남성 보세몰 AI 직원 7팀</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='4' fill='%23ffe9a8'/%3E%3Crect x='3' y='5' width='10' height='6' rx='1' fill='%2333272a'/%3E%3Crect x='5' y='7' width='2' height='2' fill='%23ffe9a8'/%3E%3Crect x='9' y='7' width='2' height='2' fill='%23ffe9a8'/%3E%3C/svg%3E" />
+<style>
+/* ──────────────────────────────────────────────
+   픽셀 오피스 테마 — 크림 종이 + 잉크 테두리
+   ────────────────────────────────────────────── */
+@font-face{font-family:"Galmuri11";src:url("https://cdn.jsdelivr.net/gh/quiple/galmuri@latest/dist/Galmuri11.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Galmuri11";src:url("https://cdn.jsdelivr.net/gh/quiple/galmuri@latest/dist/Galmuri11-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+
+:root{
+  --ink:#2f2328;
+  --ink-soft:#6b5750;
+  --muted:#9a8674;
+  --paper:#fffdf6;
+  --paper-2:#fff6ea;
+  --cream:#f6ead9;
+  --line:#2f2328;
+  --pink:#ffd9e6;
+  --pink-2:#ff9cbe;
+  --mint:#d3f4e2;
+  --mint-2:#7fd0a8;
+  --butter:#ffe9a8;
+  --sky:#d8ecff;
+  --lav:#e6dcff;
+  --orange:#ffd0a1;
+  --font:"Galmuri11","Apple SD Gothic Neo","Malgun Gothic",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"Galmuri11",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --shadow:4px 4px 0 rgba(47,35,40,.18);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font);
+  color:var(--ink);
+  background-color:var(--cream);
+  background-image:radial-gradient(#e7d5bf 1px,transparent 1px);
+  background-size:10px 10px;
+  line-height:1.5;
+  letter-spacing:-.2px;
+  -webkit-tap-highlight-color:transparent;
+}
+button{font-family:inherit;color:inherit;cursor:pointer}
+input{font-family:inherit;color:inherit}
+h1,h2,h3,h4,p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+.hidden{display:none !important}
+
+/* ── 레이아웃 ── */
+.wrap{max-width:640px;margin:0 auto;padding:0 12px 48px}
+
+/* ── 상단 브랜드 바 ── */
+.topbar{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 14px 4px;max-width:640px;margin:0 auto;
+  font-size:11px;color:var(--ink-soft);
+}
+.topbar .logo{
+  display:inline-grid;place-items:center;width:22px;height:22px;border:2px solid var(--line);
+  border-radius:6px;background:var(--butter);font-size:12px;box-shadow:2px 2px 0 rgba(47,35,40,.18);
+}
+.topbar b{font-size:12px;letter-spacing:.5px}
+.topbar .net{margin-left:auto;display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700}
+.topbar .net i{width:7px;height:7px;border-radius:50%;background:#59c08a;border:1px solid var(--line);display:inline-block}
+.topbar .net.off{color:#b4614f}
+.topbar .net.off i{background:#e28a76}
+
+/* ── 탭 ── */
+.tabs{
+  position:sticky;top:0;z-index:60;
+  display:grid;grid-template-columns:1.12fr 1fr 1.06fr;gap:7px;
+  padding:8px 12px 10px;max-width:640px;margin:0 auto;
+  background:linear-gradient(180deg,#f8eee0 62%,rgba(248,238,224,.86));
+}
+.tab{
+  display:flex;align-items:center;justify-content:center;gap:4px;
+  padding:9px 3px;border:3px solid var(--line);border-radius:11px;
+  background:var(--paper);font-size:11px;font-weight:700;letter-spacing:-.5px;overflow:hidden;
+  box-shadow:3px 3px 0 rgba(47,35,40,.16);
+  transition:transform .06s ease,box-shadow .06s ease,background .12s ease;
+  white-space:nowrap;
+}
+.tab:active{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(47,35,40,.16)}
+.tab[aria-selected="true"]{background:var(--butter);box-shadow:0 0 0 rgba(0,0,0,0)}
+.tab .badge{
+  display:inline-grid;place-items:center;min-width:17px;height:17px;padding:0 4px;
+  border:2px solid var(--line);border-radius:999px;background:var(--pink-2);
+  color:#3a2029;font-size:9.5px;font-weight:700;line-height:1;
+}
+.tab .badge.zero{background:#efe2d0;color:var(--muted)}
+
+/* ── 윈도우 ── */
+.win{
+  background:var(--paper);border:3px solid var(--line);border-radius:13px;
+  box-shadow:var(--shadow);overflow:hidden;margin-bottom:12px;
+}
+.bar{
+  display:flex;align-items:center;gap:6px;padding:6px 9px;
+  border-bottom:3px solid var(--line);font-size:11px;font-weight:700;
+  background:var(--butter);
+}
+.bar .ic{font-size:11px}
+.bar .ttl{font-family:var(--mono);letter-spacing:.2px}
+.bar .btns{margin-left:auto;display:flex;gap:4px}
+.bar .btns i{
+  width:15px;height:15px;border:2px solid var(--line);border-radius:3px;background:var(--paper);
+  display:grid;place-items:center;font-style:normal;font-size:8.5px;line-height:1;color:var(--ink-soft);
+}
+.bar.pink{background:linear-gradient(180deg,#ffdfea,#ffc6d9)}
+.bar.mint{background:linear-gradient(180deg,#dcf7e9,#bfeed7)}
+.bar.sky{background:linear-gradient(180deg,#e3f0ff,#c7e3fb)}
+.bar.butter{background:linear-gradient(180deg,#fff2c9,#ffe39c)}
+.bar.lav{background:linear-gradient(180deg,#eee6ff,#dbcdff)}
+.pad{padding:12px}
+
+/* ── 상태 카드 ── */
+.chip{
+  display:inline-flex;align-items:center;gap:4px;
+  border:2.5px solid var(--line);border-radius:999px;padding:2px 9px;
+  background:var(--mint);font-size:10.5px;font-weight:700;
+  box-shadow:2px 2px 0 rgba(47,35,40,.14);
+}
+.chip.pink{background:var(--pink)}
+.chip.idle{background:#efe6d6}
+.head{font-size:19px;line-height:1.35;margin:9px 0 5px;letter-spacing:-.6px}
+.sub{font-size:11.5px;color:var(--ink-soft);line-height:1.65}
+.pipeline{display:flex;flex-wrap:wrap;gap:4px;margin-top:12px}
+.pl{
+  display:inline-flex;align-items:center;gap:4px;
+  border:2px solid var(--line);border-radius:999px;padding:2px 7px;
+  font-size:9.5px;font-weight:700;background:#f3ead9;color:var(--muted);
+}
+.pl i{width:6px;height:6px;border-radius:50%;background:var(--muted);display:inline-block}
+.pl.done{background:var(--mint);color:#2d5a45}
+.pl.done i{background:var(--mint-2)}
+.pl.active{background:var(--pink);color:#5b2233;box-shadow:1px 1px 0 rgba(47,35,40,.15)}
+.pl.active i{background:var(--pink-2);animation:pulse 1.1s steps(2,end) infinite}
+
+/* ── 회의실 씬 ── */
+.room{position:relative;aspect-ratio:1 / 1.1;background:#fff8ee;overflow:hidden;isolation:isolate}
+.room .wall{
+  position:absolute;left:0;right:0;top:0;height:52%;
+  background:linear-gradient(180deg,#fffaf0,#fdeedd);
+  border-bottom:3px solid #e6cfb4;
+}
+.room .wall::after{
+  content:"";position:absolute;inset:0;
+  background-image:repeating-linear-gradient(90deg,rgba(120,90,70,.05) 0 2px,transparent 2px 30px);
+}
+.room .floor{
+  position:absolute;left:0;right:0;bottom:0;height:48%;
+  background-color:#f4dfc6;
+  background-image:
+    repeating-linear-gradient(90deg,#f2d9bd 0 26px,#eed2b2 26px 52px),
+    repeating-linear-gradient(0deg,rgba(120,90,70,.08) 0 1px,transparent 1px 26px);
+}
+.room .rug{
+  position:absolute;left:9%;right:9%;top:45%;height:28%;
+  background:#ffe1e8;border:3px solid #f3b9c8;border-radius:50% / 40%;
+  opacity:.55;z-index:1;
+}
+.board{
+  position:absolute;left:5%;top:5%;width:38%;height:20%;
+  background:#fffdf6;border:3px solid var(--line);border-radius:6px;
+  box-shadow:2px 2px 0 rgba(47,35,40,.14);z-index:1;padding:4px;
+  display:flex;gap:3px;align-items:flex-start;
+}
+.board .note{width:22%;aspect-ratio:1;border:2px solid rgba(47,35,40,.35);border-radius:2px;display:block}
+.board .n1{background:#ffe9a8;transform:rotate(-4deg)}
+.board .n2{background:#cdeedd;transform:rotate(3deg)}
+.board .n3{background:#ffd0dd;transform:rotate(-2deg)}
+.board .lbl{position:absolute;right:3px;bottom:1px;font-size:6.5px;letter-spacing:1px;color:var(--muted)}
+.clock{
+  position:absolute;right:6%;top:7%;width:13%;aspect-ratio:1;border:3px solid var(--line);
+  border-radius:50%;background:#fffdf6;display:grid;place-items:center;z-index:1;
+  font-size:8px;font-weight:700;color:var(--ink-soft);box-shadow:2px 2px 0 rgba(47,35,40,.14);
+}
+.table{
+  position:absolute;left:16%;right:16%;top:47%;height:20%;
+  background:linear-gradient(180deg,#ffeaa9,#ffd97c);
+  border:3px solid var(--line);border-radius:16px / 12px;
+  box-shadow:0 7px 0 #e2b45c,0 12px 0 rgba(47,35,40,.12);
+  z-index:4;
+}
+.table .cup{position:absolute;width:9px;height:8px;background:#fffdf6;border:2px solid var(--line);border-radius:2px 2px 3px 3px}
+.table .c1{left:12%;top:20%}
+.table .c2{left:20%;top:46%}
+.table .paper{position:absolute;left:38%;top:26%;width:16%;height:38%;background:#fffdf6;border:2px solid #b9a794;transform:rotate(-6deg)}
+.table .laptop{position:absolute;right:14%;top:22%;width:20%;height:44%;background:#cfc7b8;border:2px solid var(--line);border-radius:3px}
+.table .nameplate{position:absolute;left:50%;top:56%;transform:translateX(-50%);background:var(--paper);border:2px solid var(--line);border-radius:3px;font-size:7px;padding:0 4px;font-weight:700}
+
+.people{position:absolute;inset:0}
+.person{position:absolute;width:16%;transform:translateX(-50%)}
+.p1{left:22%;top:21%;z-index:2}
+.p2{left:50%;top:20%;z-index:2}
+.p3{left:78%;top:21%;z-index:2}
+.p4{left:78%;top:62%;z-index:7}
+.p5{left:22%;top:62%;z-index:7}
+.p6{left:50%;top:67%;z-index:7}
+.p7{left:10%;top:44%;z-index:7}
+.p8{left:88%;top:40%;z-index:7}
+.figure{position:relative;display:block;filter:drop-shadow(0 2px 0 rgba(47,35,40,.12))}
+.pix{display:block;width:100%;height:auto;image-rendering:pixelated}
+.fig-badge{
+  position:absolute;top:-3px;right:-4px;font-size:10px;line-height:1;
+  background:var(--paper);border:2px solid var(--line);border-radius:5px;padding:0 2px;
+}
+.person.working .pix{animation:bob 1.5s steps(2,end) infinite}
+.person.working .fig-badge{background:var(--mint)}
+.person.waiting .fig-badge{background:var(--pink);animation:pulse 1s steps(2,end) infinite}
+.person.done .fig-badge{background:var(--sky)}
+.person.idle .pix{filter:saturate(.55) opacity(.9)}
+.person.idle .fig-badge{background:#efe6d6}
+.pillwrap{position:absolute;left:50%;top:calc(100% - 3px);transform:translateX(-50%);z-index:8}
+.pill{
+  display:inline-flex;align-items:center;gap:3px;white-space:nowrap;
+  background:var(--paper);border:2px solid var(--line);border-radius:999px;
+  padding:1px 3px 1px 6px;font-size:9px;font-weight:700;
+  box-shadow:1px 1px 0 rgba(47,35,40,.2);
+}
+.pill .role{
+  border:2px solid var(--line);border-radius:999px;padding:0 4px;font-size:7.5px;
+  background:var(--rc,#ffd9e6);
+}
+.ceo .pill{background:#fff4d6}
+.ceo .fig-badge{background:var(--butter)}
+
+/* 말풍선 */
+.bubble{
+  --bx:-50%;--tail:50%;
+  position:absolute;left:50%;bottom:calc(100% + 4px);transform:translate(var(--bx),0);
+  width:max-content;max-width:200px;min-width:120px;
+  background:#fffdf6;border:3px solid var(--line);border-radius:10px;
+  padding:6px 8px;font-size:10.5px;line-height:1.45;font-weight:700;
+  box-shadow:3px 3px 0 rgba(47,35,40,.16);z-index:20;
+}
+.bubble::after{
+  content:"";position:absolute;bottom:-8px;left:var(--tail);width:10px;height:10px;
+  background:#fffdf6;border-right:3px solid var(--line);border-bottom:3px solid var(--line);
+  transform:translateX(-50%) rotate(45deg);
+}
+.bubble .bname{display:block;font-size:7.5px;color:var(--muted);letter-spacing:.2px;margin-bottom:1px}
+.p2 .bubble{--bx:-50%;--tail:50%}
+.p3 .bubble{--bx:-72%;--tail:78%}
+.p4 .bubble{--bx:-72%;--tail:78%}
+.p5 .bubble{--bx:-30%;--tail:34%}
+.p7 .bubble{--bx:-6%;--tail:20%}
+.p8 .bubble{--bx:-92%;--tail:92%}
+
+.room-foot{
+  display:flex;align-items:center;gap:6px;padding:6px 10px;border-top:3px solid var(--line);
+  background:#fff4e6;font-size:9.5px;color:var(--ink-soft);font-weight:700;
+}
+.room-foot .dot{width:6px;height:6px;border-radius:50%;background:var(--mint-2);border:1px solid var(--line);display:inline-block}
+
+/* ── 활동 로그 ── */
+.feed{max-height:250px;overflow:auto;padding:2px 0}
+.feed li{display:grid;grid-template-columns:38px 1fr;gap:7px;padding:7px 11px;border-bottom:1px dashed #e6d3ba;font-size:11px}
+.feed li:last-child{border-bottom:0}
+.feed .t{color:var(--muted);font-size:9.5px;font-variant-numeric:tabular-nums;padding-top:1px}
+.feed .m{line-height:1.55;color:#4a3831}
+.feed .tag{
+  display:inline-block;margin-right:4px;padding:0 4px;border-radius:4px;font-size:8.5px;
+  border:1.5px solid rgba(47,35,40,.45);color:#5b463c;background:#f6ecdc;vertical-align:1px;
+}
+.feed li.k-start .m,.feed li.k-decision .m{font-weight:700}
+.feed li.k-decision{background:#fff7dd}
+.feed li.k-start{background:#fff2f6}
+.feed-empty{padding:16px 12px;font-size:11px;color:var(--muted);text-align:center}
+
+/* ── 로스터 ── */
+.roster{padding:4px 10px 8px}
+.staff{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:start;padding:8px 2px;border-bottom:1px dashed #e6d3ba}
+.staff:last-child{border-bottom:0}
+.s-ava{
+  width:28px;height:28px;border:2px solid var(--line);border-radius:8px;
+  display:grid;place-items:center;font-size:13px;background:var(--c,#eee);
+}
+.s-who b{font-size:11.5px;display:inline-block}
+.s-who em{font-style:normal;font-size:9px;color:var(--muted);margin-left:4px;font-weight:700}
+.s-task{font-size:10px;color:#8a756a;margin-top:1px;line-height:1.4}
+.s-right{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+.s-st{font-size:9px;font-weight:700;padding:1px 6px;border-radius:999px;border:2px solid var(--line);white-space:nowrap}
+.s-st.working{background:var(--mint)}
+.s-st.waiting{background:var(--pink);animation:pulse 1.3s steps(2,end) infinite}
+.s-st.done{background:var(--sky)}
+.s-st.idle{background:#efe6d6;color:var(--muted)}
+.s-pay{font-size:8.5px;color:#b7a292;font-weight:700}
+.roster-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:7px 11px;border-top:3px solid var(--line);background:#fff2f7;font-size:10px;font-weight:700;color:#7c4c5c;
+}
+
+/* ── 대시보드 KPI ── */
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:8px}
+.kpi{
+  background:var(--paper);border:3px solid var(--line);border-radius:11px;
+  box-shadow:var(--shadow);padding:8px 10px;
+}
+.kpi span{display:block;font-size:9.5px;color:var(--muted);font-weight:700;margin-bottom:2px}
+.kpi b{font-size:20px;letter-spacing:-.8px}
+.kpi em{font-style:normal;font-size:9.5px;color:var(--ink-soft);margin-left:2px;font-weight:700}
+.kpi.pink{background:#fff2f7}
+.kpi.mint{background:#f0fbf5}
+.kpi.sky{background:#f1f8ff}
+
+/* ── 런칭 카드 ── */
+.sample{
+  border:2.5px dashed #cbb59b;border-radius:10px;padding:9px 10px;background:#fffaf0;
+}
+.sample .tag{font-size:8.5px;font-weight:700;border:2px solid var(--line);border-radius:999px;background:var(--butter);padding:0 5px;margin-right:5px}
+.sample b{font-size:12.5px}
+.sample-meta{font-size:9.5px;color:var(--muted);margin-top:3px}
+.sample-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:7px}
+.sample-grid div{background:var(--paper);border:2px solid #e0cdb4;border-radius:7px;padding:4px 5px}
+.sample-grid span{display:block;font-size:8.5px;color:var(--muted);font-weight:700}
+.sample-grid b{font-size:10px;letter-spacing:-.3px}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  border:3px solid var(--line);border-radius:10px;background:var(--paper);
+  padding:10px 12px;font-size:12px;font-weight:700;
+  box-shadow:3px 3px 0 var(--line);transition:transform .06s ease,box-shadow .06s ease;
+  width:100%;
+}
+.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--line)}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:3px 3px 0 var(--line)}
+.btn.primary{background:var(--pink);margin-top:9px}
+.btn.primary small{font-size:8.5px;background:var(--paper);border:2px solid var(--line);border-radius:999px;padding:0 4px}
+.btn.ghost{background:#f4ecdd;box-shadow:none;border-width:2px;font-size:11px;margin-top:7px;padding:8px;color:var(--ink-soft)}
+.btn.approve{background:var(--mint)}
+.btn.reject{background:#ffe0d8}
+.btn.tiny{width:auto;padding:5px 9px;font-size:10px;box-shadow:2px 2px 0 var(--line);border-width:2px}
+.launch-status{margin-top:8px;font-size:10.5px;color:#7a5b4a;background:#fff6e6;border:2px dashed #d9c2a4;border-radius:8px;padding:7px 9px;display:none}
+.launch-status.on{display:block}
+.launch-status b{color:#b4614f}
+
+/* 폼 */
+.form{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.form .full{grid-column:1/-1}
+.form label{display:block;font-size:9px;font-weight:700;color:var(--muted);margin-bottom:2px}
+.form input{
+  width:100%;border:2.5px solid var(--line);border-radius:8px;background:#fffdf7;
+  padding:7px 8px;font-size:11px;outline:none;
+}
+.form input:focus{background:#fffbe8;box-shadow:0 0 0 3px rgba(255,156,190,.35)}
+.form .submit{margin-top:3px}
+
+/* ── 실행 목록 ── */
+.runs{padding:6px 10px 10px}
+.run{border:2.5px solid var(--line);border-radius:10px;padding:8px 10px;margin-top:7px;background:#fffdf7;box-shadow:2px 2px 0 rgba(47,35,40,.12)}
+.run header{display:flex;align-items:center;gap:6px}
+.run header time{margin-left:auto;font-size:9px;color:var(--muted)}
+.run h3{font-size:12px;margin:4px 0 2px;letter-spacing:-.3px}
+.run .meta{font-size:9.5px;color:var(--muted);line-height:1.5}
+.progress{height:9px;border:2px solid var(--line);border-radius:999px;background:#f0e6d6;margin-top:6px;overflow:hidden}
+.progress i{display:block;height:100%;background:repeating-linear-gradient(90deg,var(--pink-2) 0 6px,#ffc2d6 6px 12px);transition:width .4s ease}
+.run.done .progress i{background:repeating-linear-gradient(90deg,var(--mint-2) 0 6px,#a9e3c5 6px 12px)}
+.run.blocked .progress i{background:repeating-linear-gradient(90deg,#f0a48d 0 6px,#f7c1ad 6px 12px)}
+.run .foot{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;font-size:9px;color:var(--ink-soft)}
+.run .foot span{background:#f5ecdc;border:1.5px solid #ddc9ae;border-radius:5px;padding:0 4px}
+.st{font-size:8.5px;font-weight:700;padding:1px 6px;border-radius:999px;border:2px solid var(--line);white-space:nowrap}
+.st.waiting{background:var(--pink)}
+.st.done{background:var(--mint)}
+.st.blocked{background:var(--orange)}
+.st.rejected{background:#e7ded2;color:#8a756a}
+.st.working{background:var(--lav)}
+.st.idle{background:#efe6d6;color:var(--muted)}
+.empty{padding:18px 14px;text-align:center}
+.empty .em{font-size:26px;line-height:1}
+.empty b{display:block;font-size:12.5px;margin:7px 0 4px}
+.empty p{font-size:10.5px;color:var(--muted);line-height:1.6}
+.empty .btn{margin-top:10px}
+
+/* ── 카탈로그 ── */
+.catalog{padding:8px 10px 12px;display:grid;gap:8px}
+.team-card{border:2.5px solid var(--line);border-radius:10px;background:#fffdf7;padding:8px 9px;box-shadow:2px 2px 0 rgba(47,35,40,.1)}
+.team-card header{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700}
+.team-card header em{font-style:normal;font-size:8.5px;border:2px solid var(--line);border-radius:999px;padding:0 5px;background:var(--butter);margin-left:auto}
+.team-card p{font-size:9.5px;color:var(--muted);margin:4px 0 5px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tools{display:flex;flex-wrap:wrap;gap:3px}
+.tools span{font-family:var(--mono);font-size:8px;border:1.5px solid #d6c3a8;border-radius:4px;padding:0 3px;background:#f7efdf;color:#7a6552}
+
+/* ── 결재 카드 ── */
+.appr{
+  border:3px solid var(--line);border-radius:11px;background:#fffdf7;padding:10px;
+  box-shadow:3px 3px 0 rgba(47,35,40,.14);margin-bottom:9px;
+}
+.appr header{display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.appr header time{margin-left:auto;font-size:9px;color:var(--muted)}
+.appr h3{font-size:13px;line-height:1.4;letter-spacing:-.3px}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 8px}
+.chips span{font-size:8.5px;border:1.5px solid #dcc8ad;border-radius:5px;padding:0 4px;background:#f8f1e2;color:#6b5750}
+.money{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:8px}
+.money div{background:#f8f1e2;border:2px solid #e2cfb4;border-radius:7px;padding:4px 5px}
+.money span{display:block;font-size:8px;color:var(--muted);font-weight:700}
+.money b{font-size:10px;letter-spacing:-.4px}
+.money .hi{background:#fff0f5;border-color:#f2bfd0}
+.qa{margin-bottom:8px}
+.qa .qa-head{display:flex;justify-content:space-between;font-size:9.5px;font-weight:700;color:var(--ink-soft);margin-bottom:3px}
+.meter{height:9px;border:2px solid var(--line);border-radius:999px;background:#f1e6d6;overflow:hidden}
+.meter i{display:block;height:100%;background:repeating-linear-gradient(90deg,var(--mint-2) 0 6px,#b6e7cd 6px 12px)}
+.summary{display:grid;grid-template-columns:44px 1fr;gap:3px 6px;font-size:9.5px;margin-bottom:8px}
+.summary dt{color:var(--muted);font-weight:700}
+.summary dd{margin:0;color:#4a3831;line-height:1.5}
+.risks{font-size:9.5px;color:#8a5544;background:#fff3ee;border:2px dashed #eec4b6;border-radius:8px;padding:6px 8px;margin-bottom:8px}
+.risks li{position:relative;padding-left:9px;line-height:1.5}
+.risks li::before{content:"·";position:absolute;left:2px}
+.note{
+  width:100%;border:2.5px solid var(--line);border-radius:8px;background:#fffdf7;
+  padding:7px 8px;font-size:10.5px;outline:none;
+}
+.note:focus{background:#fffbe8}
+.actions{display:grid;grid-template-columns:1.2fr 1fr;gap:7px;margin-top:8px}
+.actions .btn{padding:9px 8px;font-size:12px}
+.btn.loading{background:var(--butter);pointer-events:none}
+.btn.loading::after{content:"…"}
+
+/* ── 토스트 ── */
+.toasts{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:200;display:flex;flex-direction:column;gap:6px;width:min(92vw,420px);pointer-events:none}
+.toast{
+  background:#fffdf6;border:3px solid var(--line);border-radius:10px;
+  box-shadow:3px 3px 0 rgba(47,35,40,.25);padding:9px 11px;font-size:11px;font-weight:700;
+  animation:pop .18s steps(2,end);
+}
+.toast.bad{background:#ffeae3}
+.toast.good{background:#eafaf0}
+
+/* ── 푸터 ── */
+.foot{max-width:640px;margin:6px auto 0;padding:0 14px;font-size:9px;color:#a3907e;text-align:center;line-height:1.8}
+
+
+/* ── 데모 모드 (정적 호스팅) ── */
+.net.demo i{background:var(--butter)}
+.demo-strip{
+  border:2.5px solid var(--line);border-radius:10px;background:#fff6e0;
+  box-shadow:2px 2px 0 rgba(47,35,40,.12);
+  padding:7px 10px;margin:0 0 10px;font-size:9.5px;line-height:1.55;
+  font-weight:700;color:#8a6a1f;text-align:center;
+}
+.demo-strip b{color:#b4614f}
+
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes pop{from{transform:translateY(6px);opacity:0}to{transform:none;opacity:1}}
+
+@media (min-width:520px){
+  .head{font-size:21px}
+  .room{aspect-ratio:1 / 1.02}
+  .kpis{grid-template-columns:repeat(4,1fr)}
+  .money{grid-template-columns:repeat(4,1fr)}
+  .catalog{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="logo">🕹️</span>
+  <b>LIVE OFFICE</b>
+  <span style="font-size:10px">남성 보세몰 AI 직원 7팀</span>
+  <span class="net" id="net"><i></i><span id="netText">연결 중…</span></span>
+</div>
+
+<nav class="tabs" role="tablist" aria-label="화면 전환">
+  <button class="tab" role="tab" id="tab-office" data-tab="office" aria-selected="true">🎮 라이브 오피스</button>
+  <button class="tab" role="tab" id="tab-dash" data-tab="dash" aria-selected="false">📊 대시보드</button>
+  <button class="tab" role="tab" id="tab-todo" data-tab="todo" aria-selected="false">📋 대표 할 일 <span class="badge zero" id="todoBadge">0</span></button>
+</nav>
+
+<div class="wrap">
+
+  <div class="demo-strip hidden" id="demoStrip">🧪 <b>브라우저 데모</b> — 실제 LLM·몰 등록·광고 집행 없이 화면과 승인 흐름만 재현합니다. 승인·반려는 이 브라우저 안에서만 반영됩니다.</div>
+
+  <!-- ══════════ TAB 1 · 라이브 오피스 ══════════ -->
+  <section id="panel-office" class="panel" role="tabpanel" aria-labelledby="tab-office">
+
+    <section class="win">
+      <div class="bar butter"><span class="ic">🗓️</span><span class="ttl">status.today</span>
+        <span class="btns"><i>–</i><i>□</i><i>×</i></span></div>
+      <div class="pad">
+        <span class="chip idle" id="statusChip">불러오는 중…</span>
+        <h1 class="head" id="statusHead">팀장님들 출근 중이에요</h1>
+        <p class="sub" id="statusSub">잠시만 기다려 주세요. 라이브 오피스를 켜는 중입니다.</p>
+        <div class="pipeline" id="pipeline" aria-label="제작 파이프라인"></div>
+      </div>
+    </section>
+
+    <section class="win">
+      <div class="bar lav"><span class="ic">🏢</span><span class="ttl">대표 승인 회의실</span>
+        <span class="btns"><i>–</i><i>□</i><i>×</i></span></div>
+      <div class="room" id="room">
+        <div class="wall"></div>
+        <div class="floor"></div>
+        <div class="rug"></div>
+        <div class="board" aria-hidden="true">
+          <i class="note n1"></i><i class="note n2"></i><i class="note n3"></i>
+          <span class="lbl">TODAY</span>
+        </div>
+        <div class="clock"><span id="clock">09:00</span></div>
+        <div class="table" aria-hidden="true">
+          <span class="cup c1"></span><span class="cup c2"></span>
+          <span class="paper"></span><span class="laptop"></span>
+          <span class="nameplate">대표</span>
+        </div>
+        <div class="people" id="people"></div>
+      </div>
+      <div class="room-foot"><span class="dot"></span><span id="roomFoot">팀장 7명 · 대표 1명 접속 중</span></div>
+    </section>
+
+    <section class="win">
+      <div class="bar sky"><span class="ic">📡</span><span class="ttl">activity.log</span>
+        <span class="btns"><i>–</i><i>□</i><i>×</i></span></div>
+      <ul class="feed" id="activityFeed"><li class="feed-empty">활동 로그를 불러오는 중…</li></ul>
+    </section>
+
+    <section class="win">
+      <div class="bar pink"><span class="ic">👥</span><span class="ttl">staff.roster</span>
+        <span class="btns"><i>–</i><i>□</i><i>×</i></span></div>
+      <div class="roster" id="roster"></div>
+      <div class="roster-foot"><span>이번 달 인건비 <b id="salaryTotal">0원</b> — 팀장님들도 사람입니다 😢</span><span>7명</span></div>
+    </section>
+  </section>
+
+  <!-- ══════════ TAB 2 · 대시보드 ══════════ -->
+  <section id="panel-dash" class="panel hidden" role="tabpanel" aria-labelledby="tab-dash">
+    <div class="kpis">
+      <div class="kpi"><span>총 실행</span><b id="kpiTotal">0</b><em>건</em></div>
+      <div class="kpi pink"><span>결재 대기</span><b id="kpiPending">0</b><em>건</em></div>
+      <div class="kpi mint"><span>승인 완료</span><b id="kpiDone">0</b><em>건</em></div>
+      <div class="kpi sky"><span>평균 검수</span><b id="kpiQa">–</b><em>점</em></div>
+    </div>
+
+    <section class="win">
+      <div class="bar mint"><span class="ic">🚀</span><span class="ttl">new.run / 새 상품 런칭 테스트</span>
+        <span class="btns"><i>–</i><i>□</i><i>×</i></span></div>
+      <div class="pad">
+        <div class="sample">
+          <div><span class="tag">샘플</span><b>에어 턴 오버핏 바람막이</b></div>
+          <div class="sample-meta">MN-OUT-2611-001 · 남성 아우터 &gt; 바람막이 · 사입처 동대문 A도매</div>
+          <div class="sample-grid">
+            <div><span>사입가</span><b>21,000원</b></div>
+            <div><span>재고</span><b>45장</b></div>
+            <div><span>제조국</span><b>베트남</b></div>
+          </div>
+        </div>
+        <button class="btn primary" id="launchSample">🚀 샘플 상품으로 런칭 <small>1클릭</small></button>
+        <button class="btn ghost" id="toggleCustom" aria-expanded="false">직접 입력해서 런칭 ▾</button>
+        <div class="launch-status" id="launchStatus"></div>
+        <div id="demoTools" class="hidden">
+          <button class="btn ghost" id="demoReset">🔄 데모 초기화 — 샘플 상태로</button>
+        </div>
+        <form class="form hidden" id="customForm" autocomplete="off">
+          <div class="full"><label for="f_name">상품명</label><input id="f_name" value="코튼 오버셔츠" maxlength="60" /></div>
+          <div class="full"><label for="f_cat">카테고리</label><input id="f_cat" value="남성 상의 > 셔츠" maxlength="40" /></div>
+          <div><label for="f_cost">사입가 (원)</label><input id="f_cost" type="number" min="0" step="100" value="16000" /></div>
+          <div><label for="f_price">판매가 (선택)</label><input id="f_price" type="number" min="0" step="100" placeholder="비우면 MD가 역산" /></div>
+          <div><label for="f_stock">재고 (장)</label><input id="f_stock" type="number" min="0" step="1" value="30" /></div>
+          <div><label for="f_origin">제조국</label><input id="f_origin" value="중국" maxlength="20" /></div>
+          <div class="full"><label for="f_colors">색상 (쉼표 구분)</label><input id="f_colors" value="화이트, 블랙, 스카이" /></div>
+          <div class="full"><button class="btn submit" type="submit" id="customSubmit">이 상품으로 런칭</button></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="win">
+      <div class="bar"><span class="ic">🗂️</span><span class="ttl">workflow.runs</span>
+        <span class="btns"><i>–</i><i>□</i><i>×</i></span></div>
+      <div class="runs" id="runs"><div class="feed-empty">아직 실행 기록이 없어요.</div></div>
+    </section>
+
+    <section class="win">
+      <div class="bar lav"><span class="ic">🧰</span><span class="ttl" id="catalogTitle">teams.catalog</span>
+        <span class="btns"><i>–</i><i>□</i><i>×</i></span></div>
+      <div class="catalog" id="catalog"><div class="feed-empty">카탈로그를 불러오는 중…</div></div>
+    </section>
+  </section>
+
+  <!-- ══════════ TAB 3 · 대표 할 일 ══════════ -->
+  <section id="panel-todo" class="panel hidden" role="tabpanel" aria-labelledby="tab-todo">
+    <section class="win">
+      <div class="bar pink"><span class="ic">📋</span><span class="ttl">approval.queue / 대표 할 일</span>
+        <span class="btns"><i>–</i><i>□</i><i>×</i></span></div>
+      <div class="pad" id="approvals"><div class="feed-empty">결재 대기 목록을 불러오는 중…</div></div>
+    </section>
+
+    <section class="win">
+      <div class="bar"><span class="ic">🗃️</span><span class="ttl">decided.recent / 지난 결재</span>
+        <span class="btns"><i>–</i><i>□</i><i>×</i></span></div>
+      <div class="runs" id="decided"><div class="feed-empty">아직 결재 기록이 없어요.</div></div>
+    </section>
+  </section>
+
+</div>
+
+<footer class="foot">
+  <div id="footMeta">남성 보세몰 AI 직원 7팀 · 인메모리 데모</div>
+  <div>문의·수정은 대표님 말로 하면 됩니다 · 자동 새로고침 4초</div>
+</footer>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ────────────── 유틸 ────────────── */
+  const $ = (sel, root) => (root || document).querySelector(sel);
+  const $$ = (sel, root) => Array.prototype.slice.call((root || document).querySelectorAll(sel));
+  const esc = (v) => String(v == null ? "" : v).replace(/[&<>"']/g, (c) => (
+    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+  ));
+  const won = (n) => (n == null || isNaN(n) ? "–" : Number(n).toLocaleString("ko-KR") + "원");
+  const pct = (n) => (n == null || isNaN(n) ? "–" : (Number(n) * 100).toFixed(1) + "%");
+  const num = (n) => (n == null || isNaN(n) ? "–" : Number(n).toLocaleString("ko-KR"));
+  const hhmm = (iso) => {
+    try {
+      return new Date(iso).toLocaleTimeString("ko-KR", {
+        hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "Asia/Seoul"
+      });
+    } catch (e) { return ""; }
+  };
+
+  const state = { office: null, wf: null, catalog: null, health: null, busy: false, tab: "office" };
+
+  async function api(path, opts) {
+    if (DEMO_MODE) return demoApi(path, opts);
+    const options = Object.assign({ headers: { "Content-Type": "application/json" } }, opts || {});
+    const res = await fetch(path, options);
+    if (!res.ok) {
+      let detail = res.status + " " + res.statusText;
+      try { const body = await res.json(); detail = body.detail || detail; } catch (e) { /* noop */ }
+      throw new Error(detail);
+    }
+    return res.json();
+  }
+
+  function toast(message, kind) {
+    const box = $("#toasts");
+    const el = document.createElement("div");
+    el.className = "toast " + (kind || "");
+    el.textContent = message;
+    box.appendChild(el);
+    setTimeout(() => { el.style.opacity = "0"; el.style.transition = "opacity .3s"; }, 3200);
+    setTimeout(() => el.remove(), 3600);
+  }
+
+  function setNet(ok) {
+    const net = $("#net");
+    net.classList.toggle("off", !ok);
+    $("#netText").textContent = ok ? (DEMO_MODE ? "데모 모드" : "서버 연결됨") : "연결 끊김";
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     데모 엔진 — FastAPI가 없는 정적 호스팅(GitHub Pages)용
+     --------------------------------------------------------------
+     서버가 없을 때 `api()`가 이 엔진으로 위임됩니다. app/main.py의
+     상태 계산(팀 상태·말풍선·파이프라인·활동 로그)과 app/teams/md/tools.py의
+     가격 계산 규칙을 브라우저에서 그대로 재현합니다. 실제 LLM 호출,
+     몰 API 등록, 광고 집행은 하지 않습니다(전부 시뮬레이션).
+     ══════════════════════════════════════════════════════════════════ */
+  const LOCAL_HOST = /^(localhost|127\.0\.0\.1|0\.0\.0\.0|\[::1\])(:\d+)?$/;
+  const DEMO_MODE =
+    location.protocol === "file:" ||
+    /(^|\.)github\.io$/.test(location.hostname) ||
+    !LOCAL_HOST.test(location.host) ||
+    /[?&]demo=1/.test(location.search);
+
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  // 회의실 픽셀 캐릭터 — app/main.py의 STAFF/CEO와 동일 (월급만 데모용 예시값)
+  const STAFF = [
+    { team: "md", team_label: "상품기획", name: "송민재", role: "MD", badge: "MD", avatar: "🧮", slot: 4, color: "#f4a7b9", hair: "#3b2f2a", shirt: "#f4a7b9", pants: "#5a4a5e", salary_monthly: 3400000 },
+    { team: "design", team_label: "디자인", name: "최아름", role: "디자인", badge: "디자인", avatar: "🎨", slot: 1, color: "#9ecbe8", hair: "#4a3b32", shirt: "#9ecbe8", pants: "#45516b", salary_monthly: 3100000 },
+    { team: "content", team_label: "콘텐츠", name: "김세리", role: "콘텐츠", badge: "콘텐츠", avatar: "✍️", slot: 2, color: "#f6d48f", hair: "#2f2a28", shirt: "#f6d48f", pants: "#5e4a3a", salary_monthly: 3000000 },
+    { team: "qa", team_label: "검수", name: "한도빈", role: "검수", badge: "QA", avatar: "🔍", slot: 3, color: "#b7e4c7", hair: "#3b2f2a", shirt: "#b7e4c7", pants: "#3f5148", salary_monthly: 3200000 },
+    { team: "dev", team_label: "개발", name: "이지혜", role: "개발", badge: "DEV", avatar: "💻", slot: 5, color: "#c3b4ee", hair: "#2b2b33", shirt: "#c3b4ee", pants: "#3d3a52", salary_monthly: 3800000 },
+    { team: "marketing", team_label: "마케팅", name: "박지훈", role: "마케팅", badge: "MKT", avatar: "📣", slot: 6, color: "#f8b26a", hair: "#4a362e", shirt: "#f8b26a", pants: "#4c3a30", salary_monthly: 3300000 },
+    { team: "cs", team_label: "고객응대", name: "윤하늘", role: "CS", badge: "CS", avatar: "🎧", slot: 7, color: "#e9e3cf", hair: "#3b2f2a", shirt: "#efe8d4", pants: "#4a4a55", salary_monthly: 2900000 }
+  ];
+  const CEO_ROW = { team: "ceo", team_label: "대표", name: "현민", role: "대표", avatar: "👑", color: "#3e4a6b", hair: "#26202a", shirt: "#3e4a6b", pants: "#2c3247" };
+
+  const STAGE_LABELS = {
+    md: "상품기획", design: "디자인", content: "콘텐츠", qa: "검수", approval: "대표 승인",
+    dev: "개발·등록", marketing: "마케팅", done: "완료", blocked: "확인 필요", rejected: "반려"
+  };
+  const STAGE_PROGRESS = { md: 10, design: 25, content: 40, qa: 55, approval: 70, dev: 85, marketing: 95, done: 100, blocked: 55, rejected: 60 };
+  const STAGE_TEAM_INDEX = { md: 0, design: 1, content: 2, qa: 3, approval: 3, blocked: 3, rejected: 3, dev: 4, marketing: 5, done: 6 };
+  const PIPE_STAGES = ["md", "design", "content", "qa", "approval", "dev", "marketing"];
+  const TEAM_SEQ = ["md", "design", "content", "qa", "dev", "marketing", "cs"];
+
+  const TASK = {
+    md: { working: "'{n}' 마진·초도 발주 계산", done: "'{n}' 판매가·발주 확정", idle: "신상품 사입가·마진 계산 대기" },
+    design: { working: "'{n}' 상세페이지 레이아웃 설계", done: "'{n}' 상세 컷·배너 시안 완료", idle: "상세페이지 템플릿 정리 중" },
+    content: { working: "'{n}' SEO 카피·고시정보 작성", done: "'{n}' 카피·릴스 대본 완료", idle: "카피 라이브러리 정리 중" },
+    qa: { working: "'{n}' 표시광고법·가격 검수", done: "'{n}' 검수 통과", idle: "검수 체크리스트 점검 중" },
+    dev: { working: "'{n}' payload 생성·재고 동기화", done: "'{n}' 몰 등록 완료", idle: "상품 등록 양식 대기 중" },
+    marketing: { working: "'{n}' 메타·네이버 캠페인 설계", done: "'{n}' 캠페인 세팅 완료", idle: "지난 캠페인 ROAS 복기 중" },
+    cs: { working: "'{n}' 교환·반품 응대 중", done: "'{n}' 응대 종료", idle: "응대 템플릿 다듬는 중" }
+  };
+  function taskText(team, kind, name) {
+    const tpl = (TASK[team] || {})[kind];
+    return tpl ? tpl.replace("{n}", name) : "";
+  }
+
+  // 몰 조건 — app/shared/config.py 기본값과 동일
+  const RULES = { vat: 0.1, platform: 0.035, payment: 0.018, reserve: 0.05, shipping: 3000, targetMargin: 0.55, minMargin: 0.25 };
+  const PENALTIES = { critical: 30, major: 8, minor: 2 };
+
+  const demo = { startedAt: new Date().toISOString(), workflows: [], activity: [] };
+
+  function demoLog(message, team, kind, at) {
+    demo.activity.push({ at: at || new Date().toISOString(), team: team || "orchestrator", message: message, kind: kind || "info" });
+    if (demo.activity.length > 120) demo.activity.splice(0, demo.activity.length - 120);
+  }
+
+  function fmt(n) { return Number(n || 0).toLocaleString("ko-KR"); }
+
+  /* ── 판매가·마진 (app/teams/md/tools.py price_quote 재현) ── */
+  function roundPsych(value) {
+    if (value <= 0) return 0;
+    const step = value >= 100000 ? 10000 : 1000;
+    return Math.max(Math.ceil(value / step) * step - 100, 100);
+  }
+
+  function priceQuote(cost, given) {
+    const netRatio = 1 / (1 + RULES.vat) * (1 - RULES.platform) - RULES.payment - RULES.reserve;
+    const warnings = [];
+    let selling, basis;
+    if (given) {
+      selling = given;
+      basis = "입력 판매가 기준 검증";
+    } else if (netRatio - RULES.targetMargin > 0.05) {
+      selling = roundPsych((cost + RULES.shipping) / (netRatio - RULES.targetMargin));
+      basis = "목표 순이익률 55% 역산";
+    } else {
+      selling = roundPsych(cost * 2.2);
+      basis = "목표 마진 구조 불가 → 공급가 2.2배 보수 책정";
+      warnings.push("수수료·충당금 합계가 목표 마진을 잠식합니다 — 마진 목표 하향 또는 공급가 재협상 필요");
+    }
+    const vat = Math.round(selling * RULES.vat / (1 + RULES.vat));
+    const netRevenue = selling - vat;
+    const platformFee = Math.round(netRevenue * RULES.platform);
+    const paymentFee = Math.round(selling * RULES.payment);
+    const returnReserve = Math.round(selling * RULES.reserve);
+    const netProfit = netRevenue - platformFee - paymentFee - returnReserve - cost - RULES.shipping;
+    const margin = selling ? Math.round(netProfit / selling * 10000) / 10000 : 0;
+    const markup = cost ? Math.round(selling / cost * 100) / 100 : 0;
+    if (netProfit <= 0) warnings.push("역마진: 판매가에서 원가·수수료·충당금을 빼면 손실입니다");
+    else if (margin < RULES.minMargin) warnings.push("순이익률 " + (margin * 100).toFixed(1) + "% — 최소 기준 25% 미달");
+    if (cost && markup < 2.0) warnings.push("판매 배수 " + markup.toFixed(1) + "배 — 보세몰 통상 2.2배 이상 필요");
+    if (cost && markup >= 4.0) warnings.push("판매 배수 " + markup.toFixed(1) + "배 — 통상 2.2~3.0배보다 높음. 경쟁 상품 시장가 확인 필요");
+    return {
+      selling: selling, cost: cost, vat: vat, platformFee: platformFee, paymentFee: paymentFee,
+      returnReserve: returnReserve, shipping: RULES.shipping, netProfit: netProfit,
+      margin: margin, markup: markup, basis: basis, warnings: warnings
+    };
+  }
+
+  /* ── 검수 (app/teams/qa/agent.py 규칙 축약) ── */
+  function qaReport(quote) {
+    const checks = [];
+    if (quote.selling <= 0) checks.push({ code: "PRICE_POSITIVE", severity: "critical", passed: false, message: "판매가가 0원 이하입니다" });
+    if (quote.selling < quote.cost) checks.push({ code: "PRICE_NOT_BELOW_COST", severity: "critical", passed: false, message: "판매가(" + fmt(quote.selling) + "원)가 공급가(" + fmt(quote.cost) + "원)보다 낮습니다 (역마진)" });
+    if (quote.netProfit <= 0) checks.push({ code: "PRICE_LOSS", severity: "critical", passed: false, message: "수수료·배송·충당금 반영 후 순이익이 " + fmt(quote.netProfit) + "원입니다" });
+    if (quote.margin < RULES.minMargin) checks.push({ code: "PRICE_MARGIN", severity: "major", passed: false, message: "순이익률 " + (quote.margin * 100).toFixed(1) + "% — 최소 기준 25% 미달, 가격 재산정 필요" });
+    checks.push({ code: "CLAIM_SCAN", severity: "critical", passed: true, message: "금지·과장 표현 0건 (표시광고법)" });
+    checks.push({ code: "DISCLOSURE_GUARD", severity: "critical", passed: true, message: "고시 필수 항목(혼용률·제조국·세탁법) 충족" });
+    checks.push({ code: "ASSET_GUARD", severity: "major", passed: true, message: "상세페이지·썸네일·배너 규격 정상" });
+    const failed = checks.filter((c) => !c.passed);
+    const score = Math.max(0, 100 - failed.reduce((sum, c) => sum + (PENALTIES[c.severity] || 2), 0));
+    const blocking = failed.some((c) => c.severity === "critical" || c.severity === "major");
+    return {
+      passed: !blocking,
+      score: score,
+      checks: checks,
+      feedback: failed.map((c) => "[md] " + c.code + ": " + c.message)
+    };
+  }
+
+  function demoDesign(product) {
+    const fitLabel = { oversized: "오버핏", slim: "슬림핏", loose: "루즈핏", regular: "레귤러핏" }[product.fit] || "레귤러핏";
+    return {
+      concept: "muted 뉴트럴 · " + fitLabel + " 실루엣 강조 · 클린 스튜디오 배경",
+      mood_keywords: ["clean", "minimal", "editorial", "muted", product.fit || "regular"],
+      assets: [
+        { kind: "detail_page", name: product.sku + "_detail", size: "860x4200" },
+        { kind: "thumbnail", name: product.sku + "_thumb", size: "1000x1000" },
+        { kind: "banner", name: product.sku + "_banner", size: "1920x600" },
+        { kind: "lookbook", name: product.sku + "_lookbook", size: "1200x1600" }
+      ]
+    };
+  }
+
+  function demoContent(product) {
+    const leaf = String(product.category || "남성 의류").split(">").pop().trim();
+    const fitLabel = { oversized: "오버핏", slim: "슬림핏", loose: "루즈핏", regular: "레귤러핏" }[product.fit] || "레귤러핏";
+    return {
+      seo_title: (product.name + " " + fitLabel + " 남자 " + leaf + " 데일리").slice(0, 50),
+      hook: "어깨선 하나로 달라지는 실루엣, " + product.name + ".",
+      hashtags: ["#남성패션", "#오버핏", "#남자바람막이", "#데일리룩", "#출근룩", "#남친룩", "#가을코디", "#무료배송", "#신상", "#남성의류"],
+      disclosure_missing: []
+    };
+  }
+
+  function demoApproval(rec) {
+    const risks = ["실서버에 상품이 공개되면 즉시 고객 주문이 들어올 수 있습니다."];
+    risks.push("MALL_API_KEY 미설정 — 이 환경에서는 시뮬레이션 등록으로 처리됩니다.");
+    (rec._quote.warnings || []).slice(0, 2).forEach((w) => risks.push(w));
+    if (rec._product && rec._product.supplier) {
+      risks.push("사입처(" + rec._product.supplier + ") 실재고·단가 확인 전 '확정 발주'로 단정하지 않습니다.");
+    }
+    return {
+      id: "apr_" + rec.workflow_id.slice(3),
+      workflow_id: rec.workflow_id,
+      kind: "deploy",
+      title: "'" + rec.name + "' 상품 등록 승인 요청",
+      summary: "SKU " + rec.sku + " / 판매가 " + fmt(rec.selling_price) + "원 / 순이익률 " + (rec.margin_rate * 100).toFixed(1) +
+        "% / 검수 " + rec.qa_score + "점. custom 몰에 상품을 등록하고 재고를 동기화합니다.",
+      requested_by: "orchestrator",
+      payload: {
+        sku: rec.sku, name: rec.name, selling_price: rec.selling_price, cost_price: rec.cost_price,
+        margin_rate: rec.margin_rate, stock: rec.inventory.stock, platform: "custom", qa_score: rec.qa_score
+      },
+      risks: risks.slice(0, 4),
+      status: "pending",
+      created_at: rec.created_at
+    };
+  }
+
+  function buildRecord(product, createdAt) {
+    const quote = priceQuote(product.cost_price, product.selling_price);
+    const qa = qaReport(quote);
+    const rec = {
+      workflow_id: "wf_" + Math.random().toString(16).slice(2, 14),
+      sku: product.sku || "MN-DEMO-000",
+      name: product.name || "신상품",
+      category: product.category || "남성 의류",
+      status: "awaiting_approval",
+      stage: "approval",
+      stage_label: STAGE_LABELS.approval,
+      progress: STAGE_PROGRESS.approval,
+      created_at: createdAt || new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+      cost_price: product.cost_price,
+      selling_price: quote.selling,
+      margin_rate: quote.margin,
+      net_profit: quote.netProfit,
+      break_even_units: quote.netProfit > 0 ? 1 : 0,
+      qa_score: qa.score,
+      qa_passed: qa.passed,
+      qa_feedback: qa.feedback,
+      design: demoDesign(product),
+      content: demoContent(product),
+      inventory: { stock: product.stock || 0, supplier: product.supplier || "직접 입력" },
+      deployed: null,
+      note: product.note || "대시보드 1클릭 런칭",
+      _quote: quote,
+      _qa: qa,
+      _product: product
+    };
+    rec.approval = demoApproval(rec);
+    return rec;
+  }
+
+  function brief(rec) {
+    const ap = rec.approval || {};
+    return {
+      workflow_id: rec.workflow_id, sku: rec.sku, name: rec.name, status: rec.status,
+      stage_label: rec.stage_label, selling_price: rec.selling_price, margin_rate: rec.margin_rate,
+      qa_score: rec.qa_score, title: ap.title || ("'" + rec.name + "' 승인 요청"),
+      risks: (ap.risks || []).slice(), created_at: rec.created_at
+    };
+  }
+
+  function sortedRuns() {
+    return demo.workflows.slice().sort((a, b) => (a.created_at < b.created_at ? 1 : a.created_at > b.created_at ? -1 : 0));
+  }
+
+  function teamStatus(active) {
+    const statuses = {}, tasks = {};
+    TEAM_SEQ.forEach((team) => { statuses[team] = "대기 중"; tasks[team] = taskText(team, "idle", ""); });
+    if (!active) return { statuses: statuses, tasks: tasks };
+    const stage = active.stage || "md";
+    const name = active.name || "신상품";
+    if (stage === "approval") {
+      TEAM_SEQ.slice(0, 3).forEach((team) => { statuses[team] = "완료"; tasks[team] = taskText(team, "done", name); });
+      statuses.qa = "결재 대기";
+      tasks.qa = "'" + name + "' 등록 승인 대기";
+      return { statuses: statuses, tasks: tasks };
+    }
+    if (stage === "blocked") {
+      TEAM_SEQ.slice(0, 3).forEach((team) => { statuses[team] = "완료"; tasks[team] = taskText(team, "done", name); });
+      statuses.qa = "결재 대기";
+      tasks.qa = "'" + name + "' 검수 반려 — 대표 확인 필요";
+      return { statuses: statuses, tasks: tasks };
+    }
+    if (stage === "rejected") {
+      TEAM_SEQ.slice(0, 4).forEach((team) => { statuses[team] = "완료"; tasks[team] = taskText(team, "done", name); });
+      tasks.qa = "'" + name + "' 대표님 반려 처리";
+      return { statuses: statuses, tasks: tasks };
+    }
+    if (stage === "done") {
+      TEAM_SEQ.slice(0, 6).forEach((team) => { statuses[team] = "완료"; tasks[team] = taskText(team, "done", name); });
+      statuses.cs = "작업 중";
+      tasks.cs = taskText("cs", "working", name);
+      return { statuses: statuses, tasks: tasks };
+    }
+    const index = STAGE_TEAM_INDEX[stage] || 0;
+    TEAM_SEQ.slice(0, index).forEach((team) => { statuses[team] = "완료"; tasks[team] = taskText(team, "done", name); });
+    const current = TEAM_SEQ[Math.min(index, TEAM_SEQ.length - 1)];
+    statuses[current] = "작업 중";
+    tasks[current] = taskText(current, "working", name);
+    return { statuses: statuses, tasks: tasks };
+  }
+
+  function demoSpeech(runs, pending, active) {
+    const staffOf = (team) => STAFF.find((s) => s.team === team) || STAFF[0];
+    if (pending.length) {
+      const s = staffOf("qa");
+      return {
+        speaker: "qa", name: s.name, slot: s.slot, kind: "approval",
+        text: pending.length > 1 ? "대표님, 오늘 결재하실 건 " + pending.length + "건이에요." : "대표님, 오늘 결재하실 건 이거 하나예요."
+      };
+    }
+    if (active) {
+      const stage = active.stage || "md";
+      const name = active.name || "신상품";
+      if (stage === "blocked") {
+        const s = staffOf("qa");
+        return { speaker: "qa", name: s.name, slot: s.slot, kind: "alert", text: "'" + name + "' 검수에서 막혔어요. 대표님 확인 부탁드려요." };
+      }
+      if (stage === "done") {
+        const s = staffOf("marketing");
+        return { speaker: "marketing", name: s.name, slot: s.slot, kind: "done", text: "'" + name + "' 몰에 등록 끝났어요. 이제 광고만 남았습니다!" };
+      }
+      if (stage !== "approval" && stage !== "rejected") {
+        const team = TEAM_SEQ[Math.min(STAGE_TEAM_INDEX[stage] || 0, TEAM_SEQ.length - 1)];
+        const s = staffOf(team);
+        return { speaker: team, name: s.name, slot: s.slot, kind: "working", text: "'" + name + "' " + (STAGE_LABELS[stage] || stage) + " 단계 진행 중이에요. 잠시만요!" };
+      }
+    }
+    if (runs.length) {
+      const s = staffOf("cs");
+      return { speaker: "cs", name: s.name, slot: s.slot, kind: "idle", text: "대표님, 오늘 결재는 다 끝났어요. 새 상품 한 건 더 넣어볼까요?" };
+    }
+    const s = staffOf("md");
+    return { speaker: "md", name: s.name, slot: s.slot, kind: "idle", text: "대표님, 오늘은 결재할 게 없어요. 새 상품 한 건 넣어볼까요?" };
+  }
+
+  function demoPipeline(active) {
+    const steps = (states) => PIPE_STAGES.map((key, i) => ({ key: key, label: STAGE_LABELS[key], state: states[i] }));
+    if (!active) return steps(PIPE_STAGES.map(() => "wait"));
+    const stage = active.stage || "md";
+    if (stage === "done") return steps(PIPE_STAGES.map(() => "done"));
+    let doneUntil = { done: 7, rejected: 4 }[stage];
+    if (doneUntil == null) doneUntil = (STAGE_TEAM_INDEX[stage] || 0) + 1;
+    return steps(PIPE_STAGES.map((key, i) => (i < doneUntil ? "done" : i === doneUntil ? "active" : "wait")));
+  }
+
+  function demoOffice() {
+    const runs = sortedRuns();
+    const pending = runs.filter((r) => r.status === "awaiting_approval");
+    const active = pending[0] || runs.find((r) => r.status === "running") || runs[0] || null;
+    const st = teamStatus(active);
+    const staff = STAFF.map((row) => Object.assign({}, row, { status: st.statuses[row.team], task: st.tasks[row.team] }));
+    return {
+      server_time: new Date().toISOString(),
+      started_at: demo.startedAt,
+      room: { title: "대표 승인 회의실", subtitle: "팀장 7명 · 대표 1명", active_workflow: active ? brief(active) : null },
+      ceo: {
+        name: CEO_ROW.name, role: CEO_ROW.role, avatar: CEO_ROW.avatar,
+        hair: CEO_ROW.hair, shirt: CEO_ROW.shirt, pants: CEO_ROW.pants,
+        status: pending.length ? "결재 대기" : "대기 중"
+      },
+      staff: staff,
+      counts: {
+        teams: staff.length,
+        pending_approval: pending.length,
+        total_runs: runs.length,
+        working: staff.filter((s) => s.status === "작업 중").length,
+        awaiting_approval: staff.filter((s) => s.status === "결재 대기").length,
+        done: staff.filter((s) => s.status === "완료").length,
+        idle: staff.filter((s) => s.status === "대기 중").length
+      },
+      speech: demoSpeech(runs, pending, active),
+      pipeline: demoPipeline(active),
+      pending_approvals: pending.map(brief),
+      activity: demo.activity.slice(-14).reverse(),
+      salary_total: STAFF.reduce((sum, row) => sum + (row.salary_monthly || 0), 0)
+    };
+  }
+
+  function demoWf() {
+    const runs = sortedRuns();
+    const pending = runs.filter((r) => r.status === "awaiting_approval");
+    const scores = runs.map((r) => r.qa_score).filter((v) => typeof v === "number");
+    return {
+      count: runs.length,
+      pending_approval: pending.length,
+      completed: runs.filter((r) => r.status === "completed").length,
+      blocked: runs.filter((r) => r.status === "qa_blocked").length,
+      average_qa_score: scores.length ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length * 10) / 10 : null,
+      stage_order: ["md", "design", "content", "qa", "approval", "dev", "marketing", "done"],
+      stage_labels: STAGE_LABELS,
+      workflows: runs,
+      pending: pending
+    };
+  }
+
+  function demoTick() {
+    state.office = demoOffice();
+    state.wf = demoWf();
+    renderAll();
+  }
+
+  function demoClearSigs() {
+    ["#people", "#activityFeed", "#roster", "#runs", "#decided", "#approvals"].forEach((sel) => {
+      const el = $(sel);
+      if (el) el.dataset.sig = "";
+    });
+  }
+
+  /* ── 7개 팀 · 32개 도구 카탈로그 (app/teams 실제 목록) ── */
+  const DEMO_CATALOG = (function () {
+    const teams = [
+      {
+        team: "md", role: "MD(상품기획)",
+        tools: ["md_price_quote", "md_size_curve", "md_allocate_initial_order", "md_reorder_signal", "md_sourcing_plan"],
+        prompt: { preview: "공급가·몰 수수료·PG 수수료·무료배송 원가·부가세·반품충당금을 모두 얹고도 남는 판매가를 역산하고, 컬러×사이즈 초도 발주와 리오더 시점을 정합니다." }
+      },
+      {
+        team: "design", role: "디자인(아트디렉터)",
+        tools: ["ds_detail_blueprint", "ds_asset_spec", "ds_image_prompt", "ds_palette"],
+        prompt: { preview: "상세페이지 섹션 블루프린트, 썸네일·배너·룩북 규격, 한국 남성 모델 이미지 프롬프트, 상품 컬러 기반 팔레트와 WCAG 대비까지 확정합니다." }
+      },
+      {
+        team: "content", role: "콘텐츠(카피라이터)",
+        tools: ["cn_seo_title", "cn_fit_guide", "cn_care_guide", "cn_disclosure", "cn_shortform_script", "cn_hashtags"],
+        prompt: { preview: "50자 이내 SEO 제목, 핏·소재·코디 카피, 전자상거래법 고시정보, 릴스 15~30초 대본, 해시태그 10개를 만듭니다." }
+      },
+      {
+        team: "qa", role: "검수(QA)",
+        tools: ["qa_scan_claims", "qa_margin_guard", "qa_disclosure_guard", "qa_asset_guard"],
+        prompt: { preview: "표시광고법 금지 표현(최고·완판·보장), 역마진·최소 마진 미달, 고시정보 누락, 이미지 규격을 규칙으로 검사하고 근거 조항과 함께 반려합니다." }
+      },
+      {
+        team: "dev", role: "개발(몰 등록·재고)",
+        tools: ["dev_option_matrix", "dev_product_payload", "dev_stock_alert"],
+        prompt: { preview: "컬러×사이즈 옵션 매트릭스와 SKU 코드, 몰 등록 payload, 재고 동기화·소진 알림까지 처리합니다. 배포 전에는 대표 승인 없이 실행하지 않습니다." }
+      },
+      {
+        team: "marketing", role: "마케팅(퍼포먼스)",
+        tools: ["mk_budget_split", "mk_roas_break_even", "mk_ad_hooks", "mk_targeting"],
+        prompt: { preview: "일 예산 채널 배분, 손익분기 ROAS 계산, 메타·네이버 광고 훅, 타겟 세그먼트를 설계하고 14일 스케줄로 세팅합니다." }
+      },
+      {
+        team: "cs", role: "CS·운영",
+        tools: ["cs_size_chart", "cs_exchange_guide", "cs_return_quote", "cs_shipping_delay_notice", "cs_defect_intake", "cs_escalation_decision"],
+        prompt: { preview: "사이즈 추천, 교환·반품 배송비 판정, 배송 지연 공지, 불량 접수, 대표 보고 기준까지 응대 템플릿으로 만듭니다." }
+      }
+    ];
+    const tools = [];
+    teams.forEach((team) => team.tools.forEach((name) => tools.push({ name: name, team: team.team })));
+    return { teams: teams, tools: tools };
+  })();
+
+  /* ── 샘플 상품 (app/web/index.html과 동일) ── */
+  const DEMO_SAMPLE = {
+    sku: "MN-OUT-2611-001",
+    name: "에어 턴 오버핏 바람막이",
+    category: "남성 아우터 > 바람막이",
+    fit: "oversized",
+    material: "폴리에스터 100%",
+    color_options: ["블랙", "차콜", "아이보리"],
+    size_options: ["M", "L", "XL", "2XL"],
+    cost_price: 21000,
+    stock: 45,
+    supplier: "동대문 A도매",
+    keywords: ["남자 바람막이", "오버핏 아우터"],
+    country_of_origin: "베트남",
+    description: "가을·초겨울 남성 오버핏 바람막이. 안감 메쉬, 밴딩 소매."
+  };
+
+  function seedDemo() {
+    demo.workflows = [];
+    demo.activity = [];
+    demo.startedAt = new Date().toISOString();
+    const t0 = Date.now();
+    const at = (minutes) => new Date(t0 - minutes * 60000).toISOString();
+    demoLog("🖥️ 라이브 오피스 가동 — 팀장 7명 접속 완료", "orchestrator", "system", at(12));
+    demoLog("☕ 회의실 정리 완료 — 대표님 오시면 바로 시작합니다", "cs", "system", at(10));
+    const rec = buildRecord(Object.assign({}, DEMO_SAMPLE, { note: "샘플 상품 런칭" }), at(7));
+    demoLog("🎬 새 상품 런칭 — '" + rec.name + "' · 사입 " + fmt(rec.cost_price) + "원 · " + rec.inventory.stock + "장", "orchestrator", "start", at(7));
+    demoLog("판매가 " + fmt(rec.selling_price) + "원 · 순이익 " + fmt(rec.net_profit) + "원 · 순이익률 " + (rec.margin_rate * 100).toFixed(1) + "% (" + rec._quote.basis + ")", "md", "log", at(6.2));
+    demoLog("레이아웃 6개 섹션 / 에셋 4종 규격 확정 (모바일 860px, 대비 7.2:1)", "design", "log", at(5.4));
+    demoLog("카피 완료 — 제목 " + rec.content.seo_title.length + "자 / 해시태그 " + rec.content.hashtags.length + "개 / 고시정보 누락 0건", "content", "log", at(4.6));
+    demoLog("1차 검수 — 통과 (점수 " + rec.qa_score + ") 표시광고법·마진·고시정보·에셋 확인", "qa", "log", at(3.8));
+    demoLog("📋 오늘 결재 대기 1건 — 대표님 승인만 남았습니다", "orchestrator", "system", at(3));
+    demo.workflows.push(rec);
+  }
+
+  const LAUNCH_STEPS = [
+    { stage: "md", team: "md", msg: (rec) => "판매가 " + fmt(rec.selling_price) + "원 · 순이익 " + fmt(rec.net_profit) + "원 · 순이익률 " + (rec.margin_rate * 100).toFixed(1) + "% (" + rec._quote.basis + ")" },
+    { stage: "design", team: "design", msg: () => "레이아웃 6개 섹션 / 에셋 4종 규격 확정 (모바일 860px)" },
+    { stage: "content", team: "content", msg: (rec) => "카피 완료 — 제목 " + rec.content.seo_title.length + "자 / 해시태그 " + rec.content.hashtags.length + "개" },
+    { stage: "qa", team: "qa", msg: (rec) => "검수 " + (rec._qa.passed ? "통과" : "반려") + " (점수 " + rec.qa_score + ") — " + rec._qa.checks.length + "개 항목 확인" }
+  ];
+
+  async function demoLaunch(product) {
+    const rec = buildRecord(product, new Date().toISOString());
+    rec.status = "running";
+    rec.stage = "md";
+    rec.stage_label = STAGE_LABELS.md;
+    rec.progress = STAGE_PROGRESS.md;
+    rec.approval = null;
+    demo.workflows.unshift(rec);
+    demoLog("🎬 새 상품 런칭 — '" + rec.name + "' · 사입 " + fmt(rec.cost_price) + "원 · " + rec.inventory.stock + "장", "orchestrator", "start");
+    demoTick();
+    for (let i = 0; i < LAUNCH_STEPS.length; i++) {
+      const step = LAUNCH_STEPS[i];
+      rec.stage = step.stage;
+      rec.stage_label = STAGE_LABELS[step.stage];
+      rec.progress = STAGE_PROGRESS[step.stage];
+      demoLog(step.msg(rec), step.team, "log");
+      demoTick();
+      await sleep(1000);
+    }
+    if (rec._qa.passed) {
+      rec.status = "awaiting_approval";
+      rec.stage = "approval";
+      rec.stage_label = STAGE_LABELS.approval;
+      rec.progress = STAGE_PROGRESS.approval;
+      rec.approval = demoApproval(rec);
+      demoLog("📋 결재 대기 — '" + rec.name + "' 검수 " + rec.qa_score + "점 · 판매가 " + fmt(rec.selling_price) + "원 · 순이익률 " + (rec.margin_rate * 100).toFixed(1) + "%", "orchestrator", "system");
+    } else {
+      rec.status = "qa_blocked";
+      rec.stage = "blocked";
+      rec.stage_label = STAGE_LABELS.blocked;
+      rec.progress = STAGE_PROGRESS.blocked;
+      demoLog("🚫 검수에서 막혔습니다 — " + (rec.qa_feedback[0] || "확인 필요"), "qa", "log");
+    }
+    rec.updated_at = new Date().toISOString();
+    demoTick();
+    return {
+      workflow_id: rec.workflow_id,
+      status: rec.status,
+      awaiting_approval: rec._qa.passed,
+      qa_report: { passed: rec._qa.passed, score: rec.qa_score, feedback: rec.qa_feedback },
+      result: {}
+    };
+  }
+
+  async function demoDecide(workflowId, approved, note) {
+    const rec = demo.workflows.find((r) => r.workflow_id === workflowId);
+    if (!rec) throw new Error("워크플로를 찾을 수 없습니다: " + workflowId);
+    if (rec.status !== "awaiting_approval") throw new Error("승인 대기 상태가 아닙니다 (이미 종료되었거나 실행 중)");
+    const now = new Date().toISOString();
+    rec.approval = Object.assign({}, rec.approval, {
+      status: approved ? "approved" : "rejected",
+      decided_at: now,
+      decided_by: "대표",
+      note: note || ""
+    });
+    demoLog((approved ? "✅" : "🚫") + " 대표님 " + (approved ? "승인" : "반려") + " — '" + rec.name + "'" + (note ? " / 메모: " + note : ""), "approval", "decision");
+    if (!approved) {
+      rec.status = "rejected";
+      rec.stage = "rejected";
+      rec.stage_label = STAGE_LABELS.rejected;
+      rec.progress = STAGE_PROGRESS.rejected;
+      rec.updated_at = now;
+      demoTick();
+      return { workflow_id: workflowId, status: "rejected", result: {} };
+    }
+    rec.status = "running";
+    rec.stage = "dev";
+    rec.stage_label = STAGE_LABELS.dev;
+    rec.progress = STAGE_PROGRESS.dev;
+    demoTick();
+    await sleep(800);
+    const mallId = "MN" + String(Date.now()).slice(-8);
+    rec.deployed = {
+      deployed: true, simulated: true, platform: "custom", mall_product_id: mallId,
+      product_url: null, inventory_synced: true, errors: [], deployed_at: new Date().toISOString()
+    };
+    demoLog("상품 등록 완료 — custom / ID " + mallId + " / 재고 동기화 true (시뮬레이션)", "dev", "log");
+    demoTick();
+    await sleep(800);
+    const daily = Math.max(10000, Math.round(rec.net_profit * 0.6 / 1000) * 1000);
+    rec.stage = "marketing";
+    rec.stage_label = STAGE_LABELS.marketing;
+    rec.progress = STAGE_PROGRESS.marketing;
+    demoLog("캠페인 세팅 완료 — 메타·네이버·인스타 3채널 / 14일 예산 " + fmt(daily * 14) + "원 (일 " + fmt(daily) + "원)", "marketing", "log");
+    demoTick();
+    await sleep(900);
+    rec.status = "completed";
+    rec.stage = "done";
+    rec.stage_label = STAGE_LABELS.done;
+    rec.progress = 100;
+    rec.updated_at = new Date().toISOString();
+    demoLog("🏁 '" + rec.name + "' 런칭 완료 — 몰 등록·광고 세팅·CS 템플릿까지 끝났습니다", "orchestrator", "system");
+    demoTick();
+    return { workflow_id: workflowId, status: "completed", result: {} };
+  }
+
+  async function demoApi(path, opts) {
+    const method = (opts && opts.method) || "GET";
+    const body = opts && opts.body ? JSON.parse(opts.body) : null;
+    if (path === "/office/state") { await sleep(40); return demoOffice(); }
+    if (path === "/workflows") { await sleep(40); return demoWf(); }
+    if (path === "/teams/catalog") return DEMO_CATALOG;
+    if (path === "/health") {
+      return {
+        status: "ok", app: "남성 보세몰 AI 직원 시스템", version: "0.1.0-demo", env: "browser",
+        llm_provider: "데모(브라우저)", mall_platform: "custom(시뮬레이션)", workflows: demo.workflows.length
+      };
+    }
+    if (path === "/workflows/launch" && method === "POST") return demoLaunch(body.product);
+    const match = /^\/workflows\/([^/]+)\/approval$/.exec(path);
+    if (match && method === "POST") return demoDecide(decodeURIComponent(match[1]), Boolean(body.approved), body.note || "");
+    throw new Error("데모에서 지원하지 않는 경로입니다: " + path);
+  }
+
+  /* ────────────── 상태 라벨 ────────────── */
+  const STATUS = {
+    awaiting_approval: { label: "결재 대기", cls: "waiting" },
+    completed: { label: "승인 완료", cls: "done" },
+    approved: { label: "승인됨", cls: "done" },
+    rejected: { label: "반려", cls: "rejected" },
+    qa_blocked: { label: "검수 차단", cls: "blocked" },
+    deploy_failed: { label: "배포 실패", cls: "blocked" },
+    running: { label: "진행 중", cls: "working" },
+    pending: { label: "대기", cls: "idle" }
+  };
+  const TEAM_TAG = {
+    orchestrator: "총괄", approval: "대표", md: "MD", design: "디자인", content: "콘텐츠",
+    qa: "검수", dev: "개발", marketing: "마케팅", cs: "CS"
+  };
+  const TEAM_ICON = { md: "🧮", design: "🎨", content: "✍️", qa: "🔍", dev: "💻", marketing: "📣", cs: "🎧" };
+
+  /* ────────────── 픽셀 캐릭터 ────────────── */
+  const CHAR = [
+    "....HHHH....",
+    "..HHHHHHHH..",
+    ".HHSSSSSSHH.",
+    ".HSSSSSSSSH.",
+    ".HSEE..EESH.",
+    ".HSSSSSSSSH.",
+    "...SSMMSS...",
+    "....SSSS....",
+    "....BBBB....",
+    "..BBBBBBBB..",
+    ".SBBBBBBBBS.",
+    ".SBBBBBBBBS.",
+    "..BBBBBBBB..",
+    "...PPPPPP...",
+    "...PP..PP...",
+    "..FFF..FFF.."
+  ];
+  const SKIN = "#f7d9c4";
+
+  function pixSvg(hair, shirt, pants) {
+    const colors = { H: hair, S: SKIN, E: "#2b2320", M: "#cf7a72", B: shirt, P: pants, F: "#3a3238" };
+    const groups = {};
+    CHAR.forEach((row, y) => {
+      for (let x = 0; x < row.length; x++) {
+        const ch = row[x];
+        if (!colors[ch]) continue;
+        (groups[ch] = groups[ch] || []).push("M" + x + " " + y + "h1v1h-1z");
+      }
+    });
+    const body = Object.keys(groups).map((ch) =>
+      '<path d="' + groups[ch].join("") + '" fill="' + colors[ch] + '"/>'
+    ).join("");
+    const crown = '<g fill="#ffd166" stroke="#8a6a1f" stroke-width=".25">' +
+      '<rect x="3" y="0" width="1" height="1"/><rect x="5" y="0" width="1" height="1"/>' +
+      '<rect x="7" y="0" width="1" height="1"/><rect x="3" y="1" width="5" height="1"/></g>';
+    return '<svg class="pix" viewBox="0 0 12 16" shape-rendering="crispEdges" aria-hidden="true">' +
+      body + crown + "</svg>";
+  }
+
+  const BADGE = { working: "💻", waiting: "❗", done: "✅", idle: "💤" };
+
+  function statusKey(label) {
+    if (label === "작업 중") return "working";
+    if (label === "결재 대기") return "waiting";
+    if (label === "완료") return "done";
+    return "idle";
+  }
+
+  function personHTML(row, speech, isCeo) {
+    const key = statusKey(row.status);
+    const bubble = speech
+      ? '<div class="bubble"><span class="bname">' + esc(row.name) + "</span>" + esc(speech.text) + "</div>"
+      : "";
+    const roleBg = isCeo ? "#ffe9a8" : (row.color || "#ffd9e6");
+    return '<div class="person p' + row.slot + " " + key + (isCeo ? " ceo" : "") + '" data-team="' + esc(row.team) + '">' +
+      bubble +
+      '<div class="figure">' + pixSvg(row.hair, row.shirt, row.pants) +
+      '<span class="fig-badge">' + (BADGE[key] || "") + "</span></div>" +
+      '<div class="pillwrap"><span class="pill"><span class="nm">' + esc(row.name) + "</span>" +
+      '<span class="role" style="--rc:' + roleBg + '">' + esc(isCeo ? "대표" : row.badge) + "</span></span></div>" +
+      "</div>";
+  }
+
+  /* ────────────── 렌더: 상단 상태 ────────────── */
+  function renderStatus() {
+    const office = state.office;
+    const wf = state.wf;
+    if (!office || !wf) return;
+    const pending = wf.pending_approval || 0;
+    const completed = wf.completed || 0;
+    const chip = $("#statusChip");
+
+    if (pending > 0) {
+      chip.className = "chip pink";
+      chip.textContent = "오늘 결재 대기 " + pending + "건";
+      $("#statusHead").textContent = "대표님, 결재만 남았어요";
+      $("#statusSub").textContent = "상품기획 → 디자인 → 콘텐츠 → 검수까지 끝났습니다. 승인하시면 바로 몰 등록과 마케팅으로 넘어갑니다.";
+    } else if (completed > 0) {
+      chip.className = "chip";
+      chip.textContent = "오늘 결재 완료";
+      $("#statusHead").textContent = "승인하신 안으로 제작 중이에요";
+      $("#statusSub").textContent = "대표님 승인 이후 개발 등록 → 마케팅 세팅 → 고객 응대까지 이어집니다.";
+    } else {
+      chip.className = "chip idle";
+      chip.textContent = "오늘 결재 없음";
+      $("#statusHead").textContent = "팀장님들 대기 중이에요";
+      $("#statusSub").textContent = "대시보드에서 샘플 상품을 1클릭으로 런칭해 보세요. 검수까지 자동으로 끝납니다.";
+    }
+
+    const pipe = office.pipeline || [];
+    $("#pipeline").innerHTML = pipe.map((step) =>
+      '<span class="pl ' + step.state + '"><i></i>' + esc(step.label) + "</span>"
+    ).join("");
+  }
+
+  /* ────────────── 렌더: 회의실 ────────────── */
+  function renderRoom() {
+    const office = state.office;
+    if (!office) return;
+    const people = $("#people");
+    const sig = JSON.stringify([
+      office.staff.map((s) => [s.team, s.status, s.task, s.name]),
+      office.speech,
+      office.ceo && office.ceo.status
+    ]);
+    if (people.dataset.sig === sig) return;
+    people.dataset.sig = sig;
+
+    const speaker = office.speech ? office.speech.speaker : null;
+    let html = office.staff.map((row) => personHTML(row, speaker === row.team ? office.speech : null, false)).join("");
+    if (office.ceo) {
+      html += personHTML(Object.assign({ slot: 8, status: office.ceo.status, role: "대표" }, office.ceo), null, true);
+    }
+    people.innerHTML = html;
+    $("#roomFoot").textContent = "팀장 " + office.staff.length + "명 · 대표 1명 접속 중 · " +
+      (office.counts && office.counts.pending_approval ? "결재 대기 " + office.counts.pending_approval + "건" : "대기 중");
+  }
+
+  /* ────────────── 렌더: 활동 로그 ────────────── */
+  function renderActivity() {
+    const office = state.office;
+    if (!office) return;
+    const feed = $("#activityFeed");
+    const rows = (office.activity || []).slice(0, 14);
+    if (!rows.length) {
+      feed.innerHTML = '<li class="feed-empty">아직 활동이 없어요. 샘플 상품을 런칭해 보세요.</li>';
+      return;
+    }
+    const sig = rows.map((r) => r.at + r.message).join("|");
+    if (feed.dataset.sig === sig) return;
+    feed.dataset.sig = sig;
+    feed.innerHTML = rows.map((row) => {
+      const cls = row.kind === "start" ? "k-start" : row.kind === "decision" ? "k-decision" : "";
+      const tag = TEAM_TAG[row.team] || "총괄";
+      return '<li class="' + cls + '"><span class="t">' + hhmm(row.at) + "</span>" +
+        '<span class="m"><span class="tag">' + esc(tag) + "</span>" + esc(row.message) + "</span></li>";
+    }).join("");
+  }
+
+  /* ────────────── 렌더: 로스터 ────────────── */
+  function renderRoster() {
+    const office = state.office;
+    if (!office) return;
+    const box = $("#roster");
+    const sig = JSON.stringify(office.staff.map((s) => [s.team, s.status, s.task]));
+    if (box.dataset.sig === sig) return;
+    box.dataset.sig = sig;
+    box.innerHTML = office.staff.map((row) => {
+      const key = statusKey(row.status);
+      return '<div class="staff">' +
+        '<span class="s-ava" style="--c:' + (row.color || "#eee") + '">' + (row.avatar || TEAM_ICON[row.team] || "🙂") + "</span>" +
+        '<div class="s-who"><b>' + esc(row.name) + "</b><em>" + esc(row.team_label) + " · " + esc(row.role) + "</em>" +
+        '<div class="s-task">' + esc(row.task) + "</div></div>" +
+        '<div class="s-right"><span class="s-st ' + key + '">' + esc(row.status) + "</span>" +
+        '<span class="s-pay">월급 ' + won(row.salary_monthly) + "</span></div>" +
+        "</div>";
+    }).join("");
+    $("#salaryTotal").textContent = won(office.salary_total || 0);
+  }
+
+  /* ────────────── 렌더: 배지/KPI ────────────── */
+  function renderBadge() {
+    const wf = state.wf;
+    if (!wf) return;
+    const n = wf.pending_approval || 0;
+    const badge = $("#todoBadge");
+    badge.textContent = n;
+    badge.classList.toggle("zero", n === 0);
+    document.title = (n > 0 ? "(" + n + ") " : "") + "라이브 오피스 · 남성 보세몰 AI 직원 7팀";
+  }
+
+  function renderKpis() {
+    const wf = state.wf;
+    if (!wf) return;
+    $("#kpiTotal").textContent = num(wf.count || 0);
+    $("#kpiPending").textContent = num(wf.pending_approval || 0);
+    $("#kpiDone").textContent = num(wf.completed || 0);
+    $("#kpiQa").textContent = wf.average_qa_score == null ? "–" : wf.average_qa_score;
+  }
+
+  /* ────────────── 렌더: 실행 목록 ────────────── */
+  function runCard(run) {
+    const st = STATUS[run.status] || STATUS.pending;
+    const price = run.selling_price ? "판매 " + won(run.selling_price) : "판매가 계산 전";
+    return '<article class="run ' + st.cls + '">' +
+      "<header><span class=\"st " + st.cls + '">' + st.label + "</span>" +
+      "<span class=\"st idle\">" + esc(run.stage_label || "") + "</span>" +
+      "<time>" + hhmm(run.created_at) + "</time></header>" +
+      "<h3>" + esc(run.name) + "</h3>" +
+      '<div class="meta">' + esc(run.sku) + " · " + esc(run.category || "") + " · 사입 " + won(run.cost_price) + " → " + esc(price) + "</div>" +
+      '<div class="progress"><i style="width:' + (run.progress || 0) + '%"></i></div>' +
+      '<div class="foot"><span>검수 ' + (run.qa_score == null ? "–" : run.qa_score + "점") + "</span>" +
+      "<span>순이익률 " + pct(run.margin_rate) + "</span>" +
+      "<span>" + esc(run.stage_label || "") + " " + (run.progress || 0) + "%</span></div>" +
+      "</article>";
+  }
+
+  function renderRuns() {
+    const wf = state.wf;
+    if (!wf) return;
+    const box = $("#runs");
+    const rows = wf.workflows || [];
+    if (!rows.length) {
+      box.innerHTML = '<div class="feed-empty">아직 실행 기록이 없어요. 위에서 샘플 상품을 런칭해 보세요.</div>';
+      return;
+    }
+    const sig = JSON.stringify(rows.map((r) => [r.workflow_id, r.status, r.progress]));
+    if (box.dataset.sig === sig) return;
+    box.dataset.sig = sig;
+    box.innerHTML = rows.slice(0, 12).map(runCard).join("");
+
+    const decided = $("#decided");
+    const past = rows.filter((r) => ["completed", "rejected", "qa_blocked", "deploy_failed"].indexOf(r.status) >= 0);
+    if (!past.length) {
+      decided.innerHTML = '<div class="feed-empty">아직 결재 기록이 없어요.</div>';
+      decided.dataset.sig = "";
+    } else {
+      const dsig = JSON.stringify(past.map((r) => [r.workflow_id, r.status]));
+      if (decided.dataset.sig !== dsig) {
+        decided.dataset.sig = dsig;
+        decided.innerHTML = past.slice(0, 6).map(runCard).join("");
+      }
+    }
+  }
+
+  /* ────────────── 렌더: 결재 카드 ────────────── */
+  function approvalCard(run) {
+    const ap = run.approval || {};
+    const payload = ap.payload || {};
+    const design = run.design;
+    const content = run.content;
+    const designText = design
+      ? (design.concept || "컨셉 정리됨") + " · " + (design.assets || []).length + "종 시안 (" +
+        (design.assets || []).slice(0, 3).map((a) => a.name || a.kind).join(", ") + ")"
+      : "디자인 산출물 없음";
+    const contentText = content
+      ? (content.seo_title || "-") + (content.hashtags && content.hashtags.length ? " · 해시태그 " + content.hashtags.length + "개" : "")
+      : "콘텐츠 산출물 없음";
+    const risks = (ap.risks || []).slice(0, 4);
+    const id = esc(run.workflow_id);
+    const score = run.qa_score == null ? 0 : Math.max(0, Math.min(100, run.qa_score));
+
+    return '<article class="appr" data-id="' + id + '">' +
+      '<header><span class="st waiting">결재 대기</span>' +
+      '<span class="st idle">' + esc(run.stage_label || "") + "</span>" +
+      "<time>" + hhmm(run.created_at) + "</time></header>" +
+      "<h3>「" + esc(run.name) + "」 " + esc((ap.kind === "deploy" || !ap.kind ? "상품 등록" : ap.kind)) + " 승인</h3>" +
+      '<div class="chips"><span>' + esc(run.category || "남성 의류") + "</span><span>SKU " + esc(run.sku) + "</span>" +
+      "<span>" + esc(payload.platform || "custom") + " 몰</span>" +
+      "<span>재고 " + esc((run.inventory && run.inventory.stock) || payload.stock || 0) + "장</span></div>" +
+      '<div class="money">' +
+      "<div><span>사입가</span><b>" + won(run.cost_price) + "</b></div>" +
+      '<div class="hi"><span>판매가</span><b>' + won(run.selling_price) + "</b></div>" +
+      "<div><span>순이익</span><b>" + won(run.net_profit) + "</b></div>" +
+      "<div><span>순이익률</span><b>" + pct(run.margin_rate) + "</b></div>" +
+      "</div>" +
+      '<div class="qa"><div class="qa-head"><span>검수 점수</span><b>' + score + "점 · " +
+      (run.qa_passed ? "통과" : "확인 필요") + "</b></div>" +
+      '<div class="meter"><i style="width:' + score + '%"></i></div></div>' +
+      '<dl class="summary"><dt>디자인</dt><dd>' + esc(designText) + "</dd>" +
+      "<dt>콘텐츠</dt><dd>" + esc(contentText) + "</dd></dl>" +
+      (risks.length ? '<ul class="risks">' + risks.map((r) => "<li>" + esc(r) + "</li>").join("") + "</ul>" : "") +
+      '<input class="note" maxlength="120" placeholder="메모 (선택) — 예: 재고 확인 후 등록" />' +
+      '<div class="actions">' +
+      '<button class="btn approve" data-wf="' + id + '" data-approved="1">✓ 승인</button>' +
+      '<button class="btn reject" data-wf="' + id + '" data-approved="0">✕ 반려</button>' +
+      "</div></article>";
+  }
+
+  function renderApprovals() {
+    const wf = state.wf;
+    if (!wf) return;
+    const box = $("#approvals");
+    const pending = wf.pending || [];
+    if (!pending.length) {
+      box.innerHTML = '<div class="empty"><div class="em">🫡</div><b>오늘 결재할 안이 없어요</b>' +
+        "<p>대시보드에서 샘플 상품을 런칭하면<br>검수까지 끝난 안이 여기로 올라옵니다.</p>" +
+        '<button class="btn tiny" data-goto="dash">샘플 상품 런칭하러 가기 →</button></div>';
+      return;
+    }
+    const sig = JSON.stringify(pending.map((r) => [r.workflow_id, r.status, r.qa_score]));
+    if (box.dataset.sig === sig) return;
+    box.dataset.sig = sig;
+    box.innerHTML = pending.map(approvalCard).join("");
+  }
+
+  /* ────────────── 렌더: 카탈로그 ────────────── */
+  function renderCatalog() {
+    const cat = state.catalog;
+    if (!cat) return;
+    const box = $("#catalog");
+    const teams = cat.teams || [];
+    const tools = cat.tools || [];
+    $("#catalogTitle").textContent = "teams.catalog · " + teams.length + "개 팀 · " + tools.length + "개 도구";
+    box.innerHTML = teams.map((team) => {
+      const preview = (team.prompt && team.prompt.preview) || team.role || "";
+      return '<article class="team-card"><header><span>' + (TEAM_ICON[team.team] || "🙂") + "</span>" +
+        "<b>" + esc(team.role || team.team) + "</b><em>" + esc(team.team.toUpperCase()) + "</em></header>" +
+        "<p>" + esc(preview) + "</p>" +
+        '<div class="tools">' + (team.tools || []).map((t) => "<span>" + esc(t) + "</span>").join("") + "</div></article>";
+    }).join("");
+  }
+
+  /* ────────────── 전체 렌더 ────────────── */
+  function renderAll() {
+    renderBadge();
+    renderStatus();
+    renderRoom();
+    renderActivity();
+    renderRoster();
+    renderKpis();
+    renderRuns();
+    renderApprovals();
+  }
+
+  /* ────────────── 데이터 ────────────── */
+  async function refresh() {
+    try {
+      const res = await Promise.all([api("/office/state"), api("/workflows")]);
+      state.office = res[0];
+      state.wf = res[1];
+      setNet(true);
+      renderAll();
+    } catch (err) {
+      setNet(false);
+      if (!state.office) {
+        const chip = $("#statusChip");
+        chip.className = "chip idle";
+        chip.textContent = "서버 연결 실패";
+        $("#statusHead").textContent = "라이브 오피스에 연결할 수 없어요";
+        $("#statusSub").textContent = "uvicorn app.main:app --reload 로 서버를 켠 뒤 http://localhost:8000 으로 열어 주세요.";
+        $("#activityFeed").innerHTML = '<li class="feed-empty">서버 응답이 없어요. 4초마다 다시 시도합니다.</li>';
+      }
+    }
+  }
+
+  async function loadCatalog() {
+    try {
+      state.catalog = await api("/teams/catalog");
+      renderCatalog();
+    } catch (e) {
+      $("#catalog").innerHTML = '<div class="feed-empty">카탈로그를 불러오지 못했어요. 새로고침해 주세요.</div>';
+    }
+  }
+
+  async function loadHealth() {
+    try {
+      state.health = await api("/health");
+      $("#footMeta").textContent = "남성 보세몰 AI 직원 7팀 · v" + state.health.version +
+        " · LLM " + state.health.llm_provider + " · " + state.health.mall_platform;
+    } catch (e) { /* 무시 */ }
+  }
+
+  /* ────────────── 탭 ────────────── */
+  function goTab(name) {
+    state.tab = name;
+    $$(".tab").forEach((tab) => tab.setAttribute("aria-selected", String(tab.dataset.tab === name)));
+    $$(".panel").forEach((panel) => panel.classList.toggle("hidden", panel.id !== "panel-" + name));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  document.addEventListener("click", (ev) => {
+    const tab = ev.target.closest("[data-tab]");
+    if (tab) { goTab(tab.dataset.tab); return; }
+    const go = ev.target.closest("[data-goto]");
+    if (go) { goTab(go.dataset.goto); return; }
+    const btn = ev.target.closest("[data-approved]");
+    if (btn) { submitDecision(btn); }
+  });
+
+  /* ────────────── 승인 / 반려 ────────────── */
+  async function submitDecision(btn) {
+    if (state.busy) return;
+    const card = btn.closest(".appr");
+    if (!card) return;
+    const workflowId = btn.getAttribute("data-wf");
+    const approved = btn.getAttribute("data-approved") === "1";
+
+    if (!approved && btn.dataset.arm !== "1") {
+      btn.dataset.arm = "1";
+      btn.textContent = "정말 반려할까요?";
+      setTimeout(() => {
+        btn.dataset.arm = "";
+        btn.textContent = "✕ 반려";
+      }, 3200);
+      return;
+    }
+
+    const noteEl = card.querySelector(".note");
+    const note = noteEl ? noteEl.value.trim() : "";
+    state.busy = true;
+    const buttons = $$("button", card);
+    buttons.forEach((b) => { b.disabled = true; });
+    btn.classList.add("loading");
+
+    try {
+      await api("/workflows/" + encodeURIComponent(workflowId) + "/approval", {
+        method: "POST",
+        body: JSON.stringify({ approved: approved, decided_by: "대표", note: note })
+      });
+      toast(approved ? "✅ 승인 완료 — 개발·등록 → 마케팅으로 넘어갑니다" : "🚫 반려 처리했어요 — 팀장님들께 전달했습니다",
+        approved ? "good" : "bad");
+      $("#approvals").dataset.sig = "";
+      await refresh();
+    } catch (err) {
+      toast("⚠️ 처리 실패 — " + err.message, "bad");
+      buttons.forEach((b) => { b.disabled = false; });
+    } finally {
+      btn.classList.remove("loading");
+      state.busy = false;
+    }
+  }
+
+  /* ────────────── 런칭 ────────────── */
+  const STEP_TEXT = [
+    "MD가 사입가·마진을 계산하는 중…",
+    "디자인이 상세페이지를 그리는 중…",
+    "콘텐츠가 SEO 카피를 쓰는 중…",
+    "검수가 표시광고법·가격을 확인하는 중…"
+  ];
+  let stepTimer = null;
+
+  function startLaunchStatus() {
+    const box = $("#launchStatus");
+    box.classList.add("on");
+    let i = 0;
+    box.innerHTML = "<b>" + STEP_TEXT[0] + "</b>";
+    stepTimer = setInterval(() => {
+      i = Math.min(i + 1, STEP_TEXT.length - 1);
+      box.innerHTML = "<b>" + STEP_TEXT[i] + "</b>";
+    }, 1400);
+  }
+  function stopLaunchStatus(message) {
+    if (stepTimer) clearInterval(stepTimer);
+    stepTimer = null;
+    const box = $("#launchStatus");
+    if (message) {
+      box.innerHTML = message;
+      setTimeout(() => { box.classList.remove("on"); box.innerHTML = ""; }, 4000);
+    } else {
+      box.classList.remove("on");
+      box.innerHTML = "";
+    }
+  }
+
+  async function launch(product) {
+    if (state.busy) return;
+    state.busy = true;
+    const trigger = $("#launchSample");
+    const submit = $("#customSubmit");
+    if (trigger) trigger.disabled = true;
+    if (submit) submit.disabled = true;
+    startLaunchStatus();
+
+    try {
+      const res = await api("/workflows/launch", {
+        method: "POST",
+        body: JSON.stringify({ product: product, note: "대시보드 1클릭 런칭" })
+      });
+      const score = res.qa_report ? res.qa_report.score : "-";
+      const idea = res.status === "awaiting_approval"
+        ? "✅ 검수 " + score + "점 통과 — 대표 할 일에 올라갔어요"
+        : "ℹ️ 검수에서 막혔어요 (" + score + "점) — 대표 할 일에서 확인해 주세요";
+      stopLaunchStatus("<b>" + idea + "</b>");
+      $("#runs").dataset.sig = "";
+      $("#decided").dataset.sig = "";
+      $("#approvals").dataset.sig = "";
+      await refresh();
+      setTimeout(() => goTab("todo"), 900);
+    } catch (err) {
+      stopLaunchStatus("<b>⚠️ 런칭 실패 — " + esc(err.message) + "</b>");
+      toast("⚠️ 런칭 실패: " + err.message, "bad");
+    } finally {
+      state.busy = false;
+      if (trigger) trigger.disabled = false;
+      if (submit) submit.disabled = false;
+    }
+  }
+
+  const SAMPLE_PRODUCT = {
+    sku: "MN-OUT-2611-001",
+    name: "에어 턴 오버핏 바람막이",
+    category: "남성 아우터 > 바람막이",
+    fit: "oversized",
+    material: "폴리에스터 100%",
+    color_options: ["블랙", "차콜", "아이보리"],
+    size_options: ["M", "L", "XL", "2XL"],
+    cost_price: 21000,
+    stock: 45,
+    supplier: "동대문 A도매",
+    keywords: ["남자 바람막이", "오버핏 아우터"],
+    country_of_origin: "베트남",
+    description: "가을·초겨울 남성 오버핏 바람막이. 안감 메쉬, 밴딩 소매."
+  };
+
+  function stampSku(prefix) {
+    const tail = String(Date.now()).slice(-4);
+    const ran = String(Math.floor(Math.random() * 90) + 10);
+    return prefix + tail + ran;
+  }
+
+  $("#launchSample").addEventListener("click", () => {
+    const product = Object.assign({}, SAMPLE_PRODUCT, { sku: stampSku("MN-OUT-2611-") });
+    launch(product);
+  });
+
+  $("#toggleCustom").addEventListener("click", () => {
+    const form = $("#customForm");
+    const hidden = form.classList.toggle("hidden");
+    $("#toggleCustom").setAttribute("aria-expanded", String(!hidden));
+  });
+
+  $("#customForm").addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    const name = $("#f_name").value.trim();
+    const cost = Number($("#f_cost").value);
+    if (!name) { toast("상품명을 입력해 주세요", "bad"); return; }
+    if (!cost || cost < 0) { toast("사입가를 확인해 주세요", "bad"); return; }
+    const priceRaw = $("#f_price").value.trim();
+    const product = {
+      sku: stampSku("MN-CUS-"),
+      name: name,
+      category: $("#f_cat").value.trim() || "남성 의류",
+      fit: "regular",
+      material: "",
+      color_options: $("#f_colors").value.split(",").map((s) => s.trim()).filter(Boolean),
+      size_options: ["M", "L", "XL", "2XL"],
+      cost_price: cost,
+      stock: Number($("#f_stock").value) || 0,
+      supplier: "직접 입력",
+      country_of_origin: $("#f_origin").value.trim() || "중국",
+      keywords: [],
+      description: ""
+    };
+    if (priceRaw) product.selling_price = Number(priceRaw);
+    launch(product);
+  });
+
+  /* ────────────── 시계 ────────────── */
+  function tickClock() {
+    try {
+      $("#clock").textContent = new Date().toLocaleTimeString("ko-KR", {
+        hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "Asia/Seoul"
+      });
+    } catch (e) { /* 무시 */ }
+  }
+
+  /* ────────────── 시작 ────────────── */
+  if (DEMO_MODE) {
+    seedDemo();
+    $("#net").classList.add("demo");
+    $("#netText").textContent = "데모 모드";
+    $("#demoStrip").classList.remove("hidden");
+    $("#demoTools").classList.remove("hidden");
+    $("#demoReset").addEventListener("click", () => {
+      if (state.busy) return;
+      seedDemo();
+      demoClearSigs();
+      demoTick();
+      goTab("office");
+      toast("🔄 데모를 처음 상태로 되돌렸어요", "good");
+    });
+  }
+  tickClock();
+  setInterval(tickClock, 30000);
+  loadHealth();
+  loadCatalog();
+  refresh();
+  setInterval(() => {
+    if (document.hidden || state.busy) return;
+    refresh();
+  }, 4000);
+
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) refresh();
+  });
+})();
+</script>
+</body>
+</html>

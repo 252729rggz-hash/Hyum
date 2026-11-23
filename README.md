@@ -12,7 +12,7 @@
 
 ## 0. 바로 열어보기 (설치 없이)
 
-**라이브 데모: <https://252729rggz-hash.github.io/mens-mall-agents/>**
+**라이브 데모: <https://252729rggz-hash.github.io/Hyum/>** (저장소: <https://github.com/252729rggz-hash/Hyum>)
 
 `docs/index.html` 한 파일에 UI와 데모 엔진이 들어 있어, 서버 없이 브라우저에서 바로 동작합니다.
 아이폰 사파리에서 열면 회의실 캐릭터·결재 카드·승인/반려 흐름을 그대로 눌러볼 수 있습니다.
